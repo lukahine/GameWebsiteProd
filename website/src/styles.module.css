@@ -1,0 +1,86 @@
+.button {
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #61DAFB;
+    margin: 8px;
+    border: none;
+}
+
+.button:hover {
+    width: 100px;
+    height: 50px;
+    background-color: #4db0cc;
+    border: none;
+    cursor: pointer;
+}
+
+.flexwrap {
+    display: flex;
+    flex-direction: row;
+}
+
+.input_form {
+    margin: 8px;
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.form_header {
+    color: #61DAFB;
+    margin: 32px;
+}
+
+.inline {
+    display: inline;
+}
+
+.buttontext {
+    color: black;
+    text-decoration: none;
+}
+
+.errormessage {
+    color: red;
+    margin-top: 4px;
+    font-size: 12px;
+}
+
+.input_text {
+    font: Arial;
+    color: white;
+    background-color: #3c424e;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.commentwrap {
+    background-color: #3c424e;
+    height: 100px;
+    width: 80vw;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-column-gap: 0px;
+    width: 60vw;
+    border: 1px solid white;
+    padding: 16px;
+}
+
+.username {
+    color: aquamarine;
+    font-size: 18px;
+    float: left;
+    margin: 16px;
+    width: 100px;
+}
+
+.commenttext {
+    color: white;
+    font-size: 18px;
+    float: left;
+    /* margin: 16px; */
+    /* margin-bottom: 16px; */
+    /* padding: 16px; */
+}
