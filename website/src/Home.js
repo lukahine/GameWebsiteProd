@@ -18,7 +18,7 @@ function Home() {
 
 
     useEffect(() => {
-        axios.get("http://192.241.145.155:3001/comments", {
+        axios.get("https://192.241.145.155:3001/comments", {
                 headers: {
                   'Access-Control-Allow-Origin': '*',
                 }})
@@ -33,7 +33,7 @@ function Home() {
 
     useEffect(() => {
         if (userCommented) {
-            axios.get("http://192.241.145.155:3001/comments", {
+            axios.get("https://192.241.145.155:3001/comments", {
                 headers: {
                   'Access-Control-Allow-Origin': '*',
                 }})
@@ -68,7 +68,7 @@ function Home() {
         console.log(input);
         console.log(`ID: ${localStorage.getItem("id")}`)
         if (input.length > 0) {
-            axios.post('http://192.241.145.155:3001/comment', null, { params: { userid: localStorage.getItem("id"), commenttext: input } })
+            axios.post('https://192.241.145.155:3001/comment', null, { params: { userid: localStorage.getItem("id"), commenttext: input } })
                 .then(function (response) {
                     console.log("Worked")
                     console.log(response)
@@ -116,19 +116,6 @@ function Home() {
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 {put_buttons()}
-                {/* <button className={styles.button}>Login</button>
-                    <button className={styles.button}>Signup</button> */}
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
                 {comments}
             </header>
         </div>
