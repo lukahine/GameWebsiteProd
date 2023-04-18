@@ -16,7 +16,7 @@ function Login() {
     }
 
     const submitForm = (e) => {
-        axios.post('http://localhost:3001/login', null, { params: { username: username, password: password } })
+        axios.post('https://localhost:3001/login', null, { params: { username: username, password: password } })
             .then(function (response) {
                 console.log("Worked")
                 console.log(response)
