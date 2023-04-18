@@ -5,7 +5,14 @@ const mysql = require('mysql');
 const cors = require('cors')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+var https = require('https');
 
+const bodyParser = require("body-parser");
+  
+// Configuring express to use body-parser
+// as middle-ware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(cors());
 
@@ -101,8 +108,12 @@ app.get('/comments', (req, res) => {
     // connection.end();
 })
 
+const options = {
+    key: fs.readFileSync("server.key"),
+    cert: fs.readFileSync("server.cert"),
+};
 
-app.listen(3001, () => {
+https.createServer(options, app).listen(3001, () => {
     console.log("Success!");
     console.log(`Server Running on Port 3001`);
 })
