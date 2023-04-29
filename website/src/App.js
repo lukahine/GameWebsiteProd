@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import styles from './styles.module.css'
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from "./Login";
-import Home from "./Home";
-import Signup from "./Signup";
-
+import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Routes, Route}
+	from 'react-router-dom';
+import Home from './pages';
+import About from './pages/about';
+import Blogs from './pages/blogs';
+import SignUp from './pages/signup';
+import Contact from './pages/contact';
 
 function App() {
-  // localStorage.setItem("li", false);
-  return (
-    <BrowserRouter>
-      <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-        </Routes>
-    </BrowserRouter>
-    
-    
-  );
+return (
+	<Router>
+	<Navbar />
+	<Routes>
+		<Route exact path='/' element={<Home />} />
+		<Route path='/about' element={<About/>} />
+		<Route path='/contact' element={<Contact/>} />
+		<Route path='/blogs' element={<Blogs/>} />
+		<Route path='/sign-up' element={<SignUp/>} />
+	</Routes>
+	</Router>
+);
 }
 
 export default App;
