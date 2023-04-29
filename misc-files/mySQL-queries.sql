@@ -1,0 +1,1 @@
+-- TODO: Write a script that fetches all comments based on a gameid
