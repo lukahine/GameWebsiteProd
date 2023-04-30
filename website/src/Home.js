@@ -18,7 +18,7 @@ function Home() {
 
 
     useEffect(() => {
-        axios.get("https://192.241.145.155:3001/comments", {
+        axios.get("http://localhost:3001/comments", {
                 headers: {
                   'Access-Control-Allow-Origin': '*',
                 }})
@@ -33,7 +33,8 @@ function Home() {
 
     useEffect(() => {
         if (userCommented) {
-            axios.get("https://192.241.145.155:3001/comments", {
+            // axios.get("http://192.241.145.155:3001/comments", {
+            axios.get("http://localhost:3001/comments", {
                 headers: {
                   'Access-Control-Allow-Origin': '*',
                 }})
@@ -68,7 +69,7 @@ function Home() {
         console.log(input);
         console.log(`ID: ${localStorage.getItem("id")}`)
         if (input.length > 0) {
-            axios.post('https://192.241.145.155:3001/comment', null, { params: { userid: localStorage.getItem("id"), commenttext: input } })
+            axios.post('http://localhost:3001/comment', null, { params: { userid: localStorage.getItem("id"), commenttext: input } })
                 .then(function (response) {
                     console.log("Worked")
                     console.log(response)

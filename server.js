@@ -16,23 +16,23 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-var connection = mysql.createPool({
-    host: "cooplukerb-do-user-13916037-0.b.db.ondigitalocean.com",
-    port: "25060",
-    user: "erikadmin",
-    password: "AVNS_yjEe4pMgD-L8jQn5Zqg",
-    database: "hosting_db",
-    connectionLimit: 100
-});
-
 // var connection = mysql.createPool({
-//     host: "localhost",
-//     port: "3306",
-//     user: "admin",
-//     password: "",
+//     host: "cooplukerb-do-user-13916037-0.b.db.ondigitalocean.com",
+//     port: "25060",
+//     user: "erikadmin",
+//     password: "AVNS_yjEe4pMgD-L8jQn5Zqg",
 //     database: "hosting_db",
 //     connectionLimit: 100
 // });
+
+var connection = mysql.createPool({
+    host: "localhost",
+    port: "3306",
+    user: "root",
+    // password: "",
+    database: "hosting_db",
+    connectionLimit: 100
+});
 
 app.get('/', (req, res) => {
     // var connection = mysql.createConnection(options);
@@ -122,7 +122,12 @@ const options = {
     cert: fs.readFileSync("server.cert"),
 };
 
-https.createServer(options, app).listen(3001, () => {
+app.listen(3001, () => {
     console.log("Success!");
     console.log(`Server Running on Port 3001`);
 })
+
+// https.createServer(options, app).listen(3001, () => {
+//     console.log("Success!");
+//     console.log(`Server Running on Port 3001`);
+// })
