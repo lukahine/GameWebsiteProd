@@ -25,6 +25,15 @@ var connection = mysql.createPool({
     connectionLimit: 100
 });
 
+// var connection = mysql.createPool({
+//     host: "localhost",
+//     port: "3306",
+//     user: "admin",
+//     password: "",
+//     database: "hosting_db",
+//     connectionLimit: 100
+// });
+
 app.get('/', (req, res) => {
     // var connection = mysql.createConnection(options);
 
