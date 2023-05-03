@@ -17,12 +17,12 @@ app.use(bodyParser.json());
 app.use(cors());
 
 var connection = mysql.createPool({
-    host: "cooplukerb-do-user-13916037-0.b.db.ondigitalocean.com",
-    port: "25060",
-    user: "erikadmin",
-    password: "AVNS_yjEe4pMgD-L8jQn5Zqg",
+    host: "localhost",
+    port: "3306",
+    user: "root",
+    password: "",
     database: "hosting_db",
-    connectionLimit: 100
+    connectionLimit: 100,
 });
 
 app.get('/', (req, res) => {
@@ -97,12 +97,41 @@ app.post('/comment', (req, res) => {
     // connection.end();
 })
 
+app.get('/comments/:id', (req, res) => {
+    // var connection = mysql.createConnection(options);  
+    let id = req.params.id;
+    console.log("comments fetch");
+
+    connection.query(`SELECT comments.*, users.username FROM comments JOIN users
+    ON comments.UserID = users.UserID WHERE comments.GameID = ${id}; `, function (err, result, fields) {
+        if (err) throw err;
+        console.log(result);
+        res.send(result);
+    });
+
+
+
+    // connection.end();
+})
+
 app.get('/comments', (req, res) => {
     // var connection = mysql.createConnection(options);
 
+    console.log("comments");
     connection.query(`SELECT comments.commentText, users.userName FROM comments
     INNER JOIN users ON comments.userID = users.userID;`, function (err, result, fields) {
         if (err) throw err;
+        res.send(result);
+    });
+    // connection.end();
+});
+
+app.get('/games', (req, res) => {
+    // var connection = mysql.createConnection(options);
+    console.log("games");
+    connection.query(`SELECT * FROM games;`, function (err, result, fields) {
+        if (err) throw err;
+        console.log(result);
         res.send(result);
     });
     // connection.end();

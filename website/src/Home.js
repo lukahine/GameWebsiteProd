@@ -11,51 +11,51 @@ import Comment from './Comment';
 function Home() {
     const [refresh, setRefresh] = useState("");
     const [input, setInput] = useState("");
-    const [comments, setComments] = useState();
-    const [userCommented, setUserCommented] = useState(false);
+    // const [comments, setComments] = useState();
+    // const [userCommented, setUserCommented] = useState(false);
 
 
 
 
-    useEffect(() => {
-        axios.get("https://192.241.145.155:3001/comments", {
-                headers: {
-                  'Access-Control-Allow-Origin': '*',
-                }})
-            .then(function (response) {
-                console.log(response.data)
-                setComments(getAllComments(response.data));
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }, [])
+    // useEffect(() => {
+    //     axios.get("https://localhost:3001/comments", {
+    //             headers: {
+    //               'Access-Control-Allow-Origin': '*',
+    //             }})
+    //         .then(function (response) {
+    //             console.log(response.data)
+    //             setComments(getAllComments(response.data));
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         });
+    // }, [])
 
-    useEffect(() => {
-        if (userCommented) {
-            axios.get("https://192.241.145.155:3001/comments", {
-                headers: {
-                  'Access-Control-Allow-Origin': '*',
-                }})
-                .then(function (response) {
-                    console.log(response.data)
-                    setComments(getAllComments(response.data));
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-            setUserCommented(false)
-        }
-    }, [userCommented])
+    // useEffect(() => {
+    //     if (userCommented) {
+    //         axios.get("https://localhost:3001/comments", {
+    //             headers: {
+    //               'Access-Control-Allow-Origin': '*',
+    //             }})
+    //             .then(function (response) {
+    //                 console.log(response.data)
+    //                 setComments(getAllComments(response.data));
+    //             })
+    //             .catch(function (error) {
+    //                 console.log(error);
+    //             });
+    //         setUserCommented(false)
+    //     }
+    // }, [userCommented])
 
-    const getAllComments = (data) => {
-        return (
-            data.map((mappedObject, dKey) => {
-                return (<Comment key={dKey} username={mappedObject.userName} text={mappedObject.commentText} />);
-            })
+    // const getAllComments = (data) => {
+    //     return (
+    //         data.map((mappedObject, dKey) => {
+    //             return (<Comment key={dKey} username={mappedObject.userName} text={mappedObject.commentText} />);
+    //         })
 
-        );
-    }
+    //     );
+    // }
 
     const logout = () => {
         console.log("test");
@@ -68,15 +68,25 @@ function Home() {
         console.log(input);
         console.log(`ID: ${localStorage.getItem("id")}`)
         if (input.length > 0) {
-            axios.post('https://192.241.145.155:3001/comment', null, { params: { userid: localStorage.getItem("id"), commenttext: input } })
+            axios.post('https://localhost:3001/comment', null, { params: { userid: localStorage.getItem("id"), commenttext: input } })
                 .then(function (response) {
                     console.log("Worked")
                     console.log(response)
-                    setUserCommented(true);
+                    // setUserCommented(true);
                 }).catch(function (error) { // Catch errors, set ErrorCatch so that error box shows.
                     console.log("Error")
                     console.log(error);
                 });
+
+                // axios.post('https://192.241.145.155:3001/comment', null, { params: { userid: localStorage.getItem("id"), commenttext: input } })
+                // .then(function (response) {
+                //     console.log("Worked")
+                //     console.log(response)
+                //     setUserCommented(true);
+                // }).catch(function (error) { // Catch errors, set ErrorCatch so that error box shows.
+                //     console.log("Error")
+                //     console.log(error);
+                // });
         }
     }
 
@@ -116,7 +126,7 @@ function Home() {
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 {put_buttons()}
-                {comments}
+                {/* {comments} */}
             </header>
         </div>
 

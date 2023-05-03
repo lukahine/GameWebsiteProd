@@ -1,0 +1,71 @@
+:root {
+    --accent: #61DAFB;
+    --background: #282c34;
+    --unit: 48px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+html {
+    color: #fff;
+    padding-top: var(--unit);
+    background: var(--background);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+nav {
+    font-family: monospace;
+    color: var(--accent);
+    font-weight: 100;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: calc(var(--unit) * .8);
+}
+
+h2 {
+    font-size: calc(var(--unit) * .7);
+}
+
+article,
+#gamescope {
+    width: calc(100% - 128px);
+    max-width: calc(80vh / 9 * 16);
+    display: block;
+    margin: 0 auto;
+}
+
+#gamescope {
+    display: block;
+    background: #000;
+    height: 80vh;
+    max-height: calc(100vw / 16 * 9);
+    width: 100%;
+    margin: 0 auto;
+    border: none;
+}
+
+article {
+    /* margin-top: var(--unit); */
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+#comments {
+    margin-top: var(--unit);
+}

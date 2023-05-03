@@ -3,25 +3,25 @@
 
 <head>
     <style>
-        :root {
+         :root {
             --accent: #61DAFB;
             --background: #282c34;
             --unit: 48px;
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             text-decoration: none;
         }
-
+        
         html {
             color: #fff;
             padding-top: var(--unit);
             background: var(--background);
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
-
+        
         h1,
         h2,
         h3,
@@ -34,19 +34,19 @@
             color: var(--accent);
             font-weight: 100;
         }
-
+        
         a:hover {
             text-decoration: underline;
         }
-
+        
         h1 {
             font-size: calc(var(--unit) * .8);
         }
-
+        
         h2 {
             font-size: calc(var(--unit) * .7);
         }
-
+        
         nav {
             height: var(--unit);
             line-height: var(--unit);
@@ -57,16 +57,16 @@
             background: var(--background);
             position: fixed;
         }
-
+        
         #nav-content {
             list-style-type: none;
         }
-
+        
         #nav-content>* {
             display: inline-block;
             padding: 0 16px;
         }
-
+        
         #nav-content,
         article,
         #gamescope {
@@ -75,7 +75,7 @@
             display: block;
             margin: 0 auto;
         }
-
+        
         #gamescope {
             display: block;
             background: #000;
@@ -85,13 +85,22 @@
             margin: 0 auto;
             border: none;
         }
-
+        
         article {
-            margin-top: var(--unit);
+            /* margin-top: var(--unit); */
+            margin-top: 32px;
+            margin-bottom: 32px;
         }
-
+        
         #comments {
             margin-top: var(--unit);
+        }
+        
+        #hrdiv {
+            /* color: #545b69; */
+            background-color: red;
+            height: 1000px;
+            width: 1000px;
         }
     </style>
 </head>
@@ -102,10 +111,21 @@
             <li class="left">octonode</li>
         </ul>
     </nav>
-    <iframe id="gamescope" src="https://v6p9d9t4.ssl.hwcdn.net/html/6227312/index.html"></iframe>
     <article>
         <h1>Lucky Break</h1>
         <p>Dodge or destroy Lady Luck's falling dice</p>
+        <br>
+        <br>
+        <br>
+
+    </article>
+    <div class="hrdiv">Test</div>
+
+    <iframe id="gamescope" src="https://v6p9d9t4.ssl.hwcdn.net/html/6227312/index.html"></iframe>
+
+    <article>
+        <hr>
+        <br>
         <section id="comments">
             <h2>Comments</h2>
             <p>Sample Comment</p>
