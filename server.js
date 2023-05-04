@@ -5,7 +5,7 @@ const mysql = require('mysql');
 const cors = require('cors')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-var http = require('https');
+var http = require('http');
 
 const bodyParser = require("body-parser");
   
