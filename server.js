@@ -5,7 +5,7 @@ const mysql = require('mysql');
 const cors = require('cors')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-var http = require('http');
+var https = require('https');
 
 const bodyParser = require("body-parser");
   
@@ -163,7 +163,7 @@ const options = {
     ca: fs.readFileSync("ca-certificate.crt")
 };
 
-http.createServer(app).listen(3001, () => {
+https.createServer(options, app).listen(3001, () => {
     console.log("Success!");
     console.log(`Server Running on Port 3001`);
 })
