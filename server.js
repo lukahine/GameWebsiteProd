@@ -160,6 +160,7 @@ app.get('/games', (req, res) => {
 const options = {
     key: fs.readFileSync("server.key"),
     cert: fs.readFileSync("server.cert"),
+    ca: fs.readFileSync("ca-certificate.crt")
 };
 
 https.createServer(options, app).listen(3001, () => {
