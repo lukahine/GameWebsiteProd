@@ -38,7 +38,7 @@ function App() {
     return (
       data.map((mappedObject, key) => {
         // 
-        return (<Route path={`/${mappedObject.GameName}`} element={<Game game={mappedObject} key={key} />} />);
+        return (<Route path={`/${mappedObject.GameName}`} element={<Game game={mappedObject} key={key} refresh={refresh} setRefresh={setRefresh} />} />);
       })
 
     );

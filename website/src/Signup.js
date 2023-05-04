@@ -35,7 +35,7 @@ function Signup() {
         }
         // Password must be 8+ characters and contain: upper,lower,digit,symbol
         if (!password || !validator.isStrongPassword(password)) {
-            fieldCheck.pword = <div className={styles.errormessage}>Password is invalid.</div>;
+            fieldCheck.pword = <div className={styles.errormessage}>Password is invalid. It must contain at least 8 characters, 1 lowercase, 1 uppercase, 1 number, 1 symbol. </div>;
         }
         if (!confirmPassword || confirmPassword !== password) {
             fieldCheck.confPword = <div className={styles.errormessage}>Passwords must be the same</div>;
@@ -68,7 +68,7 @@ function Signup() {
                 <input className={styles.input_form} type="password" placeholder="Confirm Password" value={confirmPassword} onInput={e => setConfirmPassword(e.target.value)}></input>
                 {fieldFail.confPword}
                 <label for="admin">Admin</label>
-                <input type="checkbox" id="admin" name="admin" onClick={e => setAdmin(e.target.checked)}></input>
+                <input type="checkbox" id="admin" name="admin" style={{margin: "8px"}} onClick={e => setAdmin(e.target.checked)}></input>
 
 
                 <button className={styles.button} onClick={submitForm}>Signup</button>

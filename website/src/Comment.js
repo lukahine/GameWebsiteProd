@@ -2,12 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import styles from './styles.module.css'
 import { Link } from "react-router-dom";
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 
 
-function Comment({ username, text, commentid }) {
+function Comment({ username, text, commentid, refresh }) {
+
 
     const removeComment = () => {
         console.log(`commentID: ${commentid}`)

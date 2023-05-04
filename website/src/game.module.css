@@ -73,12 +73,12 @@ article {
 
 .commentheader {
     margin-bottom: 32px;
-    margin-left: 15vw;
+    margin-left: 10vw;
 }
 
 .commentwrap {
-    width: calc(100% - 128px);
-    max-width: calc(80vw / 9 * 16);
+    width: 70vw;
+    /* max-width: 70vw */
     display: block;
     margin: 0 auto;
 }

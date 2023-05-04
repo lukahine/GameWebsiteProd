@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react'
 
 // import { useState } from 'react'
 
-function Navbar({games, refresh, setRefresh}) {
+function Navbar({ games, refresh, setRefresh }) {
 
 
     console.log(`Navbar: ${games}`)
@@ -53,10 +53,12 @@ function Navbar({games, refresh, setRefresh}) {
         <nav>
             <ul id={styles.nav_content}>
                 <li className={styles.left}>octonode</li>
-                {put_buttons()}
-                {getAllLinks(games)}
+                <div className={styles.nav_wrap}>
                 <li className={styles.right}><Link to="/#" className={styles.right_internal}>Home</Link></li>
+                {getAllLinks(games)}
 
+                    {put_buttons()}
+                </div>
 
             </ul>
         </nav>

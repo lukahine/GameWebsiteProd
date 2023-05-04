@@ -9,10 +9,10 @@ import hstyles from './styles.module.css'
 
 // import { useState } from 'react'
 
-function Game({ game }) {
+function Game({ game, refresh, setRefresh }) {
     const [userCommented, setUserCommented] = useState(false);
     const [input, setInput] = useState("");
-    const [refresh, setRefresh] = useState("");
+    // const [refresh, setRefresh] = useState("");
     const [comments, setComments] = useState([]);
 
 
@@ -55,7 +55,7 @@ function Game({ game }) {
             data.map((mappedObject, dKey) => {
                 console.log(`MAPPED OBJECT:`)
                 console.log(mappedObject.commentID)
-                return (<Comment key={dKey} username={mappedObject.username} text={mappedObject.commentText} commentid={mappedObject.commentID} />);
+                return (<Comment key={dKey} username={mappedObject.username} text={mappedObject.commentText} commentid={mappedObject.commentID} refresh={refresh} setRefresh={setRefresh} />);
             })
 
         );
@@ -76,7 +76,7 @@ function Game({ game }) {
                 .then(function (response) {
                     console.log("Worked")
                     console.log(response)
-                    // setUserCommented(true);
+                    setUserCommented(true);
                 }).catch(function (error) { // Catch errors, set ErrorCatch so that error box shows.
                     console.log("Error")
                     console.log(error);
@@ -116,20 +116,19 @@ function Game({ game }) {
             <article>
                 <h1>{game.GameName}</h1>
                 <p>{game.GameDescription}</p>
-                <br />
                 <hr />
-                <br />
-                <br />
+                
 
             </article>
 
             <iframe id={styles.gamescope} src={game.url}></iframe>
 
-            <article className={styles.commentwrap}>
+            <article>
                 <hr />
-                <br />
+            </article>
+            <article>
                 <section id={styles.comments}>
-                    <h2 className={styles.commentheader}>Comments</h2>
+                    <h1>Comments</h1>
 
                     {put_buttons()}
                     {/* <button className={hstyles.button} onClick={comment}>Comment</button> */}
