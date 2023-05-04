@@ -9,8 +9,7 @@ import Comment from './Comment';
 
 
 function Home() {
-    const [refresh, setRefresh] = useState("");
-    const [input, setInput] = useState("");
+    // const [refresh, setRefresh] = useState("");
     // const [comments, setComments] = useState();
     // const [userCommented, setUserCommented] = useState(false);
 
@@ -57,75 +56,75 @@ function Home() {
     //     );
     // }
 
-    const logout = () => {
-        console.log("test");
-        localStorage.setItem("li", false);
-        localStorage.setItem("username", "");
-        setRefresh("a");
-    }
+    // const logout = () => {
+    //     console.log("test");
+    //     localStorage.setItem("li", false);
+    //     localStorage.setItem("username", "");
+    //     setRefresh("a");
+    // }
 
-    const comment = () => {
-        console.log(input);
-        console.log(`ID: ${localStorage.getItem("id")}`)
-        if (input.length > 0) {
-            axios.post('https://localhost:3001/comment', null, { params: { userid: localStorage.getItem("id"), commenttext: input } })
-                .then(function (response) {
-                    console.log("Worked")
-                    console.log(response)
-                    // setUserCommented(true);
-                }).catch(function (error) { // Catch errors, set ErrorCatch so that error box shows.
-                    console.log("Error")
-                    console.log(error);
-                });
+    // const comment = () => {
+    //     console.log(input);
+    //     console.log(`ID: ${localStorage.getItem("id")}`)
+    //     if (input.length > 0) {
+    //         axios.post('https://localhost:3001/comment', null, { params: { userid: localStorage.getItem("id"), commenttext: input } })
+    //             .then(function (response) {
+    //                 console.log("Worked")
+    //                 console.log(response)
+    //                 // setUserCommented(true);
+    //             }).catch(function (error) { // Catch errors, set ErrorCatch so that error box shows.
+    //                 console.log("Error")
+    //                 console.log(error);
+    //             });
 
-                // axios.post('https://192.241.145.155:3001/comment', null, { params: { userid: localStorage.getItem("id"), commenttext: input } })
-                // .then(function (response) {
-                //     console.log("Worked")
-                //     console.log(response)
-                //     setUserCommented(true);
-                // }).catch(function (error) { // Catch errors, set ErrorCatch so that error box shows.
-                //     console.log("Error")
-                //     console.log(error);
-                // });
-        }
-    }
+    //             // axios.post('https://192.241.145.155:3001/comment', null, { params: { userid: localStorage.getItem("id"), commenttext: input } })
+    //             // .then(function (response) {
+    //             //     console.log("Worked")
+    //             //     console.log(response)
+    //             //     setUserCommented(true);
+    //             // }).catch(function (error) { // Catch errors, set ErrorCatch so that error box shows.
+    //             //     console.log("Error")
+    //             //     console.log(error);
+    //             // });
+    //     }
+    // }
 
 
-    const put_buttons = () => {
-        console.log(localStorage.getItem("li"));
-        if (localStorage.getItem("li") == "true") {
-            return (
-                <>
-                    <h3 style={{ margin: "20px" }}>Username: {localStorage.getItem("username")}</h3>
-                    <h3 style={{ margin: "20px" }}>Admin: {((localStorage.getItem("admin") == 1) ? 'true' : 'false')}</h3>
-                    <textarea className={styles.input_text} value={input} onInput={e => setInput(e.target.value)} rows="4" cols="80">
-                        At w3schools.com you will learn how to make a website. They offer
-                        free tutorials in all web development technologies.
-                    </textarea>
-                    <div className={styles.flexwrap}>
-                        <button className={styles.button} onClick={comment}>Comment</button>
-                        <button className={styles.button} onClick={logout}>Logout</button>
-                    </div>
+    // const put_buttons = () => {
+    //     console.log(localStorage.getItem("li"));
+    //     if (localStorage.getItem("li") == "true") {
+    //         return (
+    //             <>
+    //                 <h3 style={{ margin: "20px" }}>Username: {localStorage.getItem("username")}</h3>
+    //                 <h3 style={{ margin: "20px" }}>Admin: {((localStorage.getItem("admin") == 1) ? 'true' : 'false')}</h3>
+    //                 <textarea className={styles.input_text} value={input} onInput={e => setInput(e.target.value)} rows="4" cols="80">
+    //                     At w3schools.com you will learn how to make a website. They offer
+    //                     free tutorials in all web development technologies.
+    //                 </textarea>
+    //                 <div className={styles.flexwrap}>
+    //                     {/* <button className={styles.button} onClick={comment}>Comment</button> */}
+    //                     <button className={styles.button} onClick={logout}>Logout</button>
+    //                 </div>
 
-                </>
-            );
-        } else {
-            return (
-                <>
-                    <div className={styles.flexwrap}>
-                        <Link to="/login" className={styles.buttontext}><button className={styles.button} >Login</button></Link>
-                        <Link to="/signup" className={styles.buttontext}><button className={styles.button} >Signup</button></Link>
-                    </div>
-                </>
-            );
-        }
-    }
+    //             </>
+    //         );
+    //     } else {
+    //         return (
+    //             <>
+    //                 <div className={styles.flexwrap}>
+    //                     <Link to="/login" className={styles.buttontext}><button className={styles.button} >Login</button></Link>
+    //                     <Link to="/signup" className={styles.buttontext}><button className={styles.button} >Signup</button></Link>
+    //                 </div>
+    //             </>
+    //         );
+    //     }
+    // }
 
     return (
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
-                {put_buttons()}
+                {/* {put_buttons()} */}
                 {/* {comments} */}
             </header>
         </div>

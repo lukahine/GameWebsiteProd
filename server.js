@@ -89,8 +89,9 @@ app.post('/login', (req, res) => {
 app.post('/comment', (req, res) => {
     // var connection = mysql.createConnection(options);
 
-    connection.query(`INSERT INTO comments (userID, commentText)
-        VALUES (${req.query.userid},'${req.query.commenttext}');`, function (err, result, fields) {
+    //INSERT INTO `comments` (`commentID`, `userID`, `GameID`, `commentText`) VALUES (NULL, '1', '1', 'This is such a cool game!'); 
+    connection.query(`INSERT INTO comments (commentID, userID, GameID, commentText)
+        VALUES (NULL, ${req.query.userid}, '${req.query.gameid}', '${req.query.commenttext}');`, function (err, result, fields) {
         if (err) throw err;
         res.send(true);
     });

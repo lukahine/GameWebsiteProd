@@ -76,6 +76,16 @@ nav {
     color: white;
 }
 
+.right_logout {
+    float: right;
+    color: white;
+}
+
+.right_logout:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .right_internal {
     color: white;
 }

@@ -5,7 +5,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login({refresh, setRefresh}) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -24,6 +24,7 @@ function Login() {
                 localStorage.setItem("admin", response.data.admin);
                 localStorage.setItem("id", response.data.userid);
                 localStorage.setItem("li", true);
+                setRefresh("b");
                 routeChange()
             }).catch(function (error) { // Catch errors, set ErrorCatch so that error box shows.
                 console.log("Error")

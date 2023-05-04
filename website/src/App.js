@@ -15,9 +15,11 @@ function App() {
   // localStorage.setItem("li", false);
 
   const [games, setGames] = useState([]);
+  const [refresh, setRefresh] = useState("");
 
 
   useEffect(() => {
+    console.log("VIBE CHECK");
     axios.get("https://localhost:3001/games", {
       headers: {
         'Access-Control-Allow-Origin': '*',
@@ -35,7 +37,8 @@ function App() {
   const getAllRoutes = (data) => {
     return (
       data.map((mappedObject, key) => {
-        return (<Route path={`/${mappedObject.GameName}`} element={<Game game={mappedObject} />} />);
+        // 
+        return (<Route path={`/${mappedObject.GameName}`} element={<Game game={mappedObject} key={key} />} />);
       })
 
     );
@@ -44,11 +47,11 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar games={games} />
+        <Navbar games={games} refresh={refresh} setRefresh={setRefresh} />
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login refresh={refresh} setRefresh={setRefresh} />} />
           <Route path="/signup" element={<Signup />} />
           {getAllRoutes(games)}
         </Routes>
