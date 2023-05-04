@@ -51,7 +51,9 @@ function Game({ game }) {
     const getAllComments = (data) => {
         return (
             data.map((mappedObject, dKey) => {
-                return (<Comment key={dKey} username={mappedObject.username} text={mappedObject.commentText} />);
+                console.log(`MAPPED OBJECT:`)
+                console.log(mappedObject.commentID)
+                return (<Comment key={dKey} username={mappedObject.username} text={mappedObject.commentText} commentid={mappedObject.commentID} />);
             })
 
         );

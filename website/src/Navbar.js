@@ -26,6 +26,8 @@ function Navbar({games, refresh, setRefresh}) {
         console.log("test");
         localStorage.setItem("li", false);
         localStorage.setItem("username", "");
+        localStorage.setItem("admin", false);
+        localStorage.setItem("id", "");
         setRefresh("a");
     }
 
