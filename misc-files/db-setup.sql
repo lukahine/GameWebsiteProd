@@ -1,3 +1,4 @@
+create database hosting_db;
 use hosting_db;
 
 -- SETUP CREATE
@@ -53,5 +54,3 @@ INSERT INTO games (GameID, GameName, GameDescription, url) VALUES (
   'Give your decree in simple yes or no answers, and help the kingdom grow! Made by Graeme Borland',
   'https://v6p9d9t4.ssl.hwcdn.net/html/347310/index.html?v=1542780889'
 );
-
-create database hosting_db
