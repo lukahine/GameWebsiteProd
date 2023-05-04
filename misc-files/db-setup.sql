@@ -23,7 +23,7 @@ CREATE TABLE games (
     GameName varchar(256) NOT NULL,
     GameDescription varchar(500) NOT NULL,
 	url varchar(256) NOT NULL,
-    PRIMARY KEY (GameID),
+    PRIMARY KEY (GameID)
 );
 
 CREATE TABLE comments (
@@ -40,7 +40,8 @@ CREATE TABLE comments (
 INSERT INTO permissions (permissionName, permissionAdd, permissionEdit) VALUES ('admin', true, true);
 INSERT INTO permissions (permissionName, permissionAdd, permissionEdit) VALUES ('user', false, false);
 
-INSERT INTO games (GameName, GameDescription, url) VALUES (
+INSERT INTO games (GameID, GameName, GameDescription, url) VALUES (
+    NULL,
   'Lucky Break (Owner: Cooper Ott)',
   'Dodge or destroy Lady Lucks falling dice. Getting hit by one will lower your health by the number on it, but jumping on top of one will heal you by that same amount, and net you some extra points based on the risk! But be careful, Lady Luck randomly changes your speed, jump height, starting health, and the difficulty of the level every round!'
   'https://v6p9d9t4.ssl.hwcdn.net/html/6227312/index.html'

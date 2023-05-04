@@ -3,16 +3,44 @@ import './App.css';
 import styles from './styles.module.css'
 import { Link } from "react-router-dom";
 import { useState } from 'react'
+import axios from 'axios'
 
 
 
-function Comment({ username, text }) {
+function Comment({ username, text, commentid }) {
 
-    
+    const removeComment = () => {
+        console.log(`commentID: ${commentid}`)
+        axios.get(`https://localhost:3001/remove/${commentid}`, {
+                headers: {
+                  'Access-Control-Allow-Origin': '*',
+                }})
+            .then(function (response) {
+                console.log(response.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    const adminpriv = () => {
+        if (localStorage.getItem("admin") == true || localStorage.getItem("admin") == "true") {
+            return (
+                <>
+                    <button className={styles.remove} onClick={removeComment}>Remove</button>
+                </>
+            );
+        } else {
+            return(<></>);
+        }
+    }
+
     return (
         <div className={styles.commentwrap}>
             <p className={styles.username}>{username}</p>
             <p className={styles.commenttext}>{text}</p>
+            {adminpriv()}
+
         </div>
 
     );

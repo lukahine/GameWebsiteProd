@@ -86,6 +86,16 @@ app.post('/login', (req, res) => {
     // connection.end();
 })
 
+app.get('/remove/:id', (req, res) => {
+    // var connection = mysql.createConnection(options);
+
+    connection.query(`DELETE FROM comments WHERE commentID = ${req.params.id};`, function (err, result, fields) {
+        if (err) throw err;
+        res.send(true);
+    });
+    // connection.end();
+})
+
 app.post('/comment', (req, res) => {
     // var connection = mysql.createConnection(options);
 
