@@ -37,7 +37,7 @@
     flex-direction: row;
     margin-bottom: 32px;
     width: 60vw;
-    margin-left: 15vw;
+    margin-left: 10vw;
 }
 
 .input_form {
@@ -75,6 +75,7 @@
     border-radius: 5px;
     /* margin-left: 15vw; */
     width: 50vw;
+    margin-right: 16px;
 }
 
 .commentwrap {

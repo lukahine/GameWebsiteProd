@@ -42,7 +42,6 @@ h2 {
     font-size: calc(var(--unit) * .7);
 }
 
-article,
 #gamescope {
     width: calc(100% - 128px);
     max-width: calc(80vh / 9 * 16);
@@ -69,6 +68,7 @@ article {
 #comments {
     /* margin: auto; */
     margin-top: var(--unit);
+    width: 100vw;
 }
 
 .commentheader {
@@ -81,4 +81,9 @@ article {
     /* max-width: 70vw */
     display: block;
     margin: 0 auto;
+}
+
+.game_comment_wrapper {
+    max-width: 80vw;
+    width: 100%;
 }

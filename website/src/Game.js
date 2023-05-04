@@ -126,8 +126,8 @@ function Game({ game, refresh, setRefresh }) {
             <article>
                 <hr />
             </article>
-            <article>
-                <section id={styles.comments}>
+            <article className={styles.game_comment_wrapper}>
+                {/* <section id={styles.comments}> */}
                     <h1>Comments</h1>
 
                     {put_buttons()}
@@ -135,7 +135,7 @@ function Game({ game, refresh, setRefresh }) {
 
                     {comments}
 
-                </section>
+                {/* </section> */}
             </article>
         </>
     );
