@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     console.log("VIBE CHECK");
-    axios.get("https://192.241.145.155:3001/games", {
+    axios.get("http://192.241.145.155:3001/games", {
       headers: {
         'Access-Control-Allow-Origin': '*',
       }
