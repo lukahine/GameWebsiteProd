@@ -15,9 +15,29 @@
     cursor: pointer;
 }
 
+.commentbutton {
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #61DAFB;
+    margin: auto;
+    border: none;
+}
+
+.commentbutton:hover {
+    width: 100px;
+    height: 50px;
+    background-color: #4db0cc;
+    border: none;
+    cursor: pointer;
+}
+
 .flexwrap {
     display: flex;
     flex-direction: row;
+    margin-bottom: 32px;
+    width: 60vw;
+    margin-left: 15vw;
 }
 
 .input_form {
@@ -53,6 +73,8 @@
     background-color: #3c424e;
     border: 0px;
     border-radius: 5px;
+    /* margin-left: 15vw; */
+    width: 50vw;
 }
 
 .commentwrap {

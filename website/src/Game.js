@@ -14,14 +14,15 @@ function Game({ game }) {
     const [input, setInput] = useState("");
     const [refresh, setRefresh] = useState("");
     const [comments, setComments] = useState([]);
-    
+
 
     useEffect(() => {
         console.log("EFFECT CLAUSE TRIGGERED");
-        axios.get(`https://localhost:3001/comments/${game.GameID}`, {
-                headers: {
-                  'Access-Control-Allow-Origin': '*',
-                }})
+        axios.get(`https://192.241.145.155:3001/comments/${game.GameID}`, {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            }
+        })
             .then(function (response) {
                 console.log(response.data)
                 setComments(getAllComments(response.data));
@@ -33,10 +34,11 @@ function Game({ game }) {
 
     useEffect(() => {
         if (userCommented) {
-            axios.get(`https://localhost:3001/comments/${game.GameID}`, {
+            axios.get(`https://192.241.145.155:3001/comments/${game.GameID}`, {
                 headers: {
-                  'Access-Control-Allow-Origin': '*',
-                }})
+                    'Access-Control-Allow-Origin': '*',
+                }
+            })
                 .then(function (response) {
                     console.log(response.data)
                     setComments(getAllComments(response.data));
@@ -70,7 +72,7 @@ function Game({ game }) {
         console.log(`ID: ${localStorage.getItem("id")}`)
         if (input.length > 0) {
             console.log(`GAME ID: ${game.GameID}`)
-            axios.post('https://localhost:3001/comment', null, { params: { userid: localStorage.getItem("id"), gameid: game.GameID, commenttext: input } })
+            axios.post('https://192.241.145.155:3001/comment', null, { params: { userid: localStorage.getItem("id"), gameid: game.GameID, commenttext: input } })
                 .then(function (response) {
                     console.log("Worked")
                     console.log(response)
@@ -87,14 +89,13 @@ function Game({ game }) {
         if (localStorage.getItem("li") == "true") {
             return (
                 <>
-                {console.log("LIST ITEM TRUE")}
-                    <textarea className={hstyles.input_text} value={input} onInput={e => setInput(e.target.value)} rows="4" cols="80">
-                        At w3schools.com you will learn how to make a website. They offer
-                        free tutorials in all web development technologies.
-                    </textarea>
                     <div className={hstyles.flexwrap}>
-                        {/* <button className={styles.button} onClick={comment}>Comment</button> */}
-                        <button className={hstyles.button} onClick={logout}>Logout</button>
+
+                        <textarea className={hstyles.input_text} value={input} onInput={e => setInput(e.target.value)} rows="4" cols="80">
+                            At w3schools.com you will learn how to make a website. They offer
+                            free tutorials in all web development technologies.
+                        </textarea>
+                        <button className={hstyles.commentbutton} onClick={comment}>Comment</button>
                     </div>
 
                 </>
@@ -102,14 +103,14 @@ function Game({ game }) {
         } else {
             return (
                 <>
-                                    {console.log("LIST ITEM FALSE")}
+                    {console.log("LIST ITEM FALSE")}
                 </>
             );
         }
     }
 
-    
-    
+
+
     return (
         <>
             <article>
@@ -124,14 +125,15 @@ function Game({ game }) {
 
             <iframe id={styles.gamescope} src={game.url}></iframe>
 
-            <article>
+            <article className={styles.commentwrap}>
                 <hr />
                 <br />
                 <section id={styles.comments}>
-                    {put_buttons()}
-                    <button className={hstyles.button} onClick={comment}>Comment</button>
+                    <h2 className={styles.commentheader}>Comments</h2>
 
-                    <h2>Comments</h2>
+                    {put_buttons()}
+                    {/* <button className={hstyles.button} onClick={comment}>Comment</button> */}
+
                     {comments}
 
                 </section>

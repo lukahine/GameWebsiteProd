@@ -11,7 +11,7 @@ function Comment({ username, text, commentid }) {
 
     const removeComment = () => {
         console.log(`commentID: ${commentid}`)
-        axios.get(`https://localhost:3001/remove/${commentid}`, {
+        axios.get(`https://192.241.145.155:3001/remove/${commentid}`, {
                 headers: {
                   'Access-Control-Allow-Origin': '*',
                 }})

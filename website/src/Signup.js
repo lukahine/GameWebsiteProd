@@ -41,7 +41,7 @@ function Signup() {
             fieldCheck.confPword = <div className={styles.errormessage}>Passwords must be the same</div>;
         }
         if (!fieldCheck.email && !fieldCheck.uname && !fieldCheck.pword && !fieldCheck.confPword) {
-            axios.post('https://localhost:3001/signup', null, { params: { email: email, username: username, password: password, admin: admin } })
+            axios.post('https://192.241.145.155:3001/signup', null, { params: { email: email, username: username, password: password, admin: admin } })
                 .then(function (response) {
                     console.log("Worked")
                     console.log(response)
