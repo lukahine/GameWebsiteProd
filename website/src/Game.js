@@ -18,7 +18,7 @@ function Game({ game }) {
 
     useEffect(() => {
         console.log("EFFECT CLAUSE TRIGGERED");
-        axios.get(`http://192.241.145.155:3001/comments/${game.GameID}`, {
+        axios.get(`https://192.241.145.155:3001/comments/${game.GameID}`, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
             }
@@ -34,7 +34,7 @@ function Game({ game }) {
 
     useEffect(() => {
         if (userCommented) {
-            axios.get(`http://192.241.145.155:3001/comments/${game.GameID}`, {
+            axios.get(`https://192.241.145.155:3001/comments/${game.GameID}`, {
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                 }
@@ -72,7 +72,7 @@ function Game({ game }) {
         console.log(`ID: ${localStorage.getItem("id")}`)
         if (input.length > 0) {
             console.log(`GAME ID: ${game.GameID}`)
-            axios.post('http://192.241.145.155:3001/comment', null, { params: { userid: localStorage.getItem("id"), gameid: game.GameID, commenttext: input } })
+            axios.post('https://192.241.145.155:3001/comment', null, { params: { userid: localStorage.getItem("id"), gameid: game.GameID, commenttext: input } })
                 .then(function (response) {
                     console.log("Worked")
                     console.log(response)

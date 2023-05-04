@@ -16,7 +16,7 @@ function Login({refresh, setRefresh}) {
     }
 
     const submitForm = (e) => {
-        axios.post('http://192.241.145.155:3001/login', null, { params: { username: username, password: password } })
+        axios.post('https://192.241.145.155:3001/login', null, { params: { username: username, password: password } })
             .then(function (response) {
                 console.log("Worked")
                 console.log(response)
