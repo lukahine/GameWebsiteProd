@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import styles from './navbar.module.css';
+import styles from './styles/navbar.module.css';
 import { Link } from 'react-router-dom';
-import hstyles from './styles.module.css'
+import hstyles from './styles/styles.module.css'
 import { useState, useEffect } from 'react'
 
 

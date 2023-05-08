@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import styles from './styles.module.css'
+import styles from './styles/styles.module.css'
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import axios from 'axios'
@@ -12,7 +12,7 @@ function Comment({ username, text, commentid, refresh }) {
 
     const removeComment = () => {
         console.log(`commentID: ${commentid}`)
-        axios.get(`https://192.241.145.155:3001/remove/${commentid}`, {
+        axios.get(`https://localhost:3001/remove/${commentid}`, {
                 headers: {
                   'Access-Control-Allow-Origin': '*',
                 }})

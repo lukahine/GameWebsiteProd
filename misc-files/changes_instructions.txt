@@ -1,0 +1,8 @@
+No Changes Made to the website since (besides changing it to connect to localhost instead of the server ips.)
+
+To start the website:
+Run SQL script.
+Edit server.js connection information to correct information for your database.
+In console: 		node server.js
+In second console: 	cd website
+			npm start

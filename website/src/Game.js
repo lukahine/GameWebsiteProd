@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import styles from './game.module.css';
+import styles from './styles/game.module.css';
 import { useState, useEffect } from 'react'
 import axios from "axios";
 import Comment from "./Comment";
-import hstyles from './styles.module.css'
+import hstyles from './styles/styles.module.css'
 
 
 // import { useState } from 'react'
@@ -18,7 +18,7 @@ function Game({ game, refresh, setRefresh }) {
 
     useEffect(() => {
         console.log("EFFECT CLAUSE TRIGGERED");
-        axios.get(`https://192.241.145.155:3001/comments/${game.GameID}`, {
+        axios.get(`https://localhost:3001/comments/${game.GameID}`, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
             }
@@ -34,7 +34,7 @@ function Game({ game, refresh, setRefresh }) {
 
     useEffect(() => {
         if (userCommented) {
-            axios.get(`https://192.241.145.155:3001/comments/${game.GameID}`, {
+            axios.get(`https://localhost:3001/comments/${game.GameID}`, {
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                 }
@@ -72,7 +72,7 @@ function Game({ game, refresh, setRefresh }) {
         console.log(`ID: ${localStorage.getItem("id")}`)
         if (input.length > 0) {
             console.log(`GAME ID: ${game.GameID}`)
-            axios.post('https://192.241.145.155:3001/comment', null, { params: { userid: localStorage.getItem("id"), gameid: game.GameID, commenttext: input } })
+            axios.post('https://localhost:3001/comment', null, { params: { userid: localStorage.getItem("id"), gameid: game.GameID, commenttext: input } })
                 .then(function (response) {
                     console.log("Worked")
                     console.log(response)

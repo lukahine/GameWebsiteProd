@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import styles from './styles.module.css'
+import styles from './styles/styles.module.css'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./Login";
 import Home from "./Home";
@@ -19,8 +19,7 @@ function App() {
 
 
   useEffect(() => {
-    console.log("VIBE CHECK");
-    axios.get("https://192.241.145.155:3001/games", {
+    axios.get("https://localhost:3001/games", {
       headers: {
         'Access-Control-Allow-Origin': '*',
       }
